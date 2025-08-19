@@ -99,11 +99,17 @@
         /* https://www.nieknijland.nl/blog/make-a-responsive-carousel-with-just-css */
 
         .list {
-            display: flex;
-            gap: 8px;
-            padding: 16px;
+            display: grid;
+            grid-auto-flow: column;
+            justify-content: space-evenly;
+            height: 100%;
 
-            height: 40vh;
+            gap: 8px;
+            padding: 48px;
+
+            mask: linear-gradient(to right, transparent, white, white, white, transparent);
+
+            /* height: 40vh; */
 
             list-style: none;
             overflow-x: scroll;
@@ -123,11 +129,16 @@
 
         .item {
             flex-shrink: 0;
-            width: 100vh;
-            height: 100vh;
 
-            background-color: #eee;
+            background-color: #fbfbf9;
+            border-radius: 4px;
+            filter: drop-shadow(#bbb 8px 8px 16px);
             scroll-snap-align: center;
+
+            margin-left: 50px;
+            margin-right: 50px;
+            align-self: center;
+            width: 600px;
         }
 
         .content {
@@ -136,12 +147,18 @@
             justify-content: center;
             height: 100%;
 
+            padding-bottom: 16px;
+
             font-family: sans-serif;
             /* font-size: 64px; */
         }
 
         .list-wrapper {
             position: relative;
+            width: 70vw;
+            max-width: fit-content;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .button {
@@ -150,6 +167,16 @@
 
             width: 3rem;
             height: 3rem;
+
+            background-color: #fbfbf9;
+
+            font-size: 2em;
+
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: .25rem;
+            box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+            box-sizing: border-box;
+            cursor: pointer;
 
             transform: translateY(-50%);
         }
@@ -196,6 +223,8 @@
     -->
     <div class="list-wrapper">
         <ul class="list">
+            <li class="item">
+            </li>
             <li class="item">
                 <div class="content">
                     <blockquote>
@@ -277,10 +306,14 @@
                     </blockquote>
                 </div>
             </li>
+            <li class="item">
+            </li>
         </ul>
-        <!-- We're calling `handleClick` with a direction argument when the buttons are clicked -->
-        <button onclick="handleClick('previous')" class="button button--previous" type="button">&larr;</button>
-        <button onclick="handleClick('next')" class="button button--next" type="button">&rarr;</button>
+        <div>
+            <!-- We're calling `handleClick` with a direction argument when the buttons are clicked -->
+            <button onclick="handleClick('previous')" class="button button--previous" type="button">&larr;</button>
+            <button onclick="handleClick('next')" class="button button--next" type="button">&rarr;</button>
+        </div>
     </div>
 
     <script>
