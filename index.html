@@ -3,10 +3,82 @@
 
 <head>
     <title>Storyteller Cindy Phillips</title>
+    <style>
+        .list {
+            display: flex;
+            gap: 8px;
+            padding: 16px;
+
+            list-style: none;
+            overflow-x: scroll;
+            scroll-snap-type: x mandatory;
+
+            /* Hide scrollbar in Firefox */
+            scrollbar-width: none;
+
+            /* Hide scrollbar in IE and Edge */
+            -ms-overflow-style: none;
+        }
+
+        /* Hide scrollbar in webkit */
+        .list::-webkit-scrollbar {
+            display: none;
+        }
+
+        .item {
+            flex-shrink: 0;
+            width: 80%;
+            height: 90vh;
+
+            background-color: #FFF;
+
+            scroll-snap-align: center;
+        }
+
+        .content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+
+            font-family: sans-serif;
+            font-size: 64px;
+            font-weight: bold;
+        }
+
+        .list-wrapper {
+            position: relative;
+        }
+
+        .button {
+            position: absolute;
+            top: 50%;
+
+            width: 3rem;
+            height: 3rem;
+
+            transform: translateY(-50%);
+        }
+
+        .button--previous {
+            left: 1.5rem;
+        }
+
+        .button--next {
+            right: 1.5rem;
+        }
+    </style>
 </head>
 
 <body>
-    <h1>Firelight Tales - to kindle imagination! Performed by storyteller Cindy Phillips</h1>
+
+    <div style="display: flex;justify-content: space-between;align-items: center;">
+        <div>
+            <h1>Firelight Tales - to kindle imagination!</h1>
+            <h2>Performed by storyteller Cindy Phillips</h2>
+        </div>
+        <img src="images/logo colored better.jpg" style="width: 150px;height: 150px;flex: 0;">
+    </div>
 
     <p>
         Cindy travels around Arkansas sharing her love of old-fashioned, oral storytelling with folks of all ages. She
@@ -21,24 +93,53 @@
             In Education</a> artist rosters. She is a teaching artist with <a href="https://altta.org/">Arkansas
             Learning Through the Arts</a> (ALTTA), using oral storytelling to promote literacy in classrooms and
         libraries.
+
+        Here are a few testimonials:
     </p>
 
-    <p>
-        Her growing repertoire of over 50 stories includes folktales and fairy tales from all over the world, most of
-        which are suitable for all ages. Themed programs include Halloween Tales, Native American/Indigenous Peoples
-        Stories, African Tales, Fairy Tales of Mystery and Magic, and World Folktales.
-    </p>
+    <!--
+    carousel "borrowed" from: https://www.nieknijland.nl/blog/make-a-responsive-carousel-with-just-css
+    -->
+    <div class="list-wrapper">
+        <ul class="list">
+            <li class="item">
+                <div class="content">Item 1</div>
+            </li>
+            <li class="item">
+                <div class="content">Item 2</div>
+            </li>
+            <li class="item">
+                <div class="content">Item 3</div>
+            </li>
+            <li class="item">
+                <div class="content">Item 4</div>
+            </li>
+            <li class="item">
+                <div class="content">Item 5</div>
+            </li>
+        </ul>
+        <!-- We're calling `handleClick` with a direction argument when the buttons are clicked -->
+        <button onclick="handleClick('previous')" class="button button--previous" type="button">&larr;</button>
+        <button onclick="handleClick('next')" class="button button--next" type="button">&rarr;</button>
+    </div>
 
-    <p>
-        Interested in booking Cindy for your event? Email <a
-            href="mailto:CindyKingPhillips@gmail.com">CindyKingPhillips@gmail.com</a>!
-    </p>
+    <script>
+        const list = document.querySelector(".list");
 
-    <p>
-        Connect on social media: Storyteller Cindy Phillips on <a
-            href="https://www.facebook.com/people/Storyteller-Cindy-Phillips/61566386852204/">Facebook</a> and <a
-            href="https://www.instagram.com/storytellercindyphillips/">Instagram</a>
-    </p>
+        // We want to know the width of one of the items. We'll use this to decide how many pixels we want our carousel to scroll.
+        const item = document.querySelector(".item");
+        const itemWidth = item.offsetWidth;
+
+        function handleClick(direction) {
+            // Based on the direction we call `scrollBy` with the item width we got earlier
+            if (direction === "previous") {
+                list.scrollBy({left: -itemWidth, behavior: "smooth"});
+            } else {
+                list.scrollBy({left: itemWidth, behavior: "smooth"});
+            }
+        }
+    </script>
+
 
     <blockquote>
         &ldquo;We had a very special guest this week&mdash;Storyteller Cindy Phillips brought her incredible talent to
@@ -57,6 +158,7 @@
         <br>
         <div style="text-align: right"> &mdash;
             Shannon Owen, Librarian at HGES
+        </div>
     </blockquote>
 
     <blockquote>
@@ -67,6 +169,7 @@
         <br>
         <div style="text-align: right"> &mdash;
             Jeff Wylie, WES Interim Principal
+        </div>
     </blockquote>
 
     <blockquote>
@@ -78,10 +181,9 @@
         <br>
         <br>
         <div style="text-align: right"> &mdash;
-            Connie Hendrix, 1st grade teacher, PES</div>
+            Connie Hendrix, 1st grade teacher, PES
+        </div>
     </blockquote>
-
-
 
     <blockquote>
         &ldquo;Storytime with Ms. Cindy was a positive experience in our 3-and 4-year-old PreK rooms. We have students
@@ -94,6 +196,24 @@
             Paula Lane, PreK Director, MES
         </div>
     </blockquote>
+
+    <p>
+        Cindy&apos;s growing repertoire of over 50 stories includes folktales and fairy tales from all over the world,
+        most of
+        which are suitable for all ages. Themed programs include Halloween Tales, Native American/Indigenous Peoples
+        Stories, African Tales, Fairy Tales of Mystery and Magic, and World Folktales.
+    </p>
+
+    <p>
+        Interested in booking Cindy for your event? Email <a
+            href="mailto:CindyKingPhillips@gmail.com">CindyKingPhillips@gmail.com</a>!
+    </p>
+
+    <p>
+        Connect on social media: Storyteller Cindy Phillips on <a
+            href="https://www.facebook.com/people/Storyteller-Cindy-Phillips/61566386852204/">Facebook</a> and <a
+            href="https://www.instagram.com/storytellercindyphillips/">Instagram</a>
+    </p>
 
 </body>
 
