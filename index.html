@@ -4,10 +4,106 @@
 <head>
     <title>Storyteller Cindy Phillips</title>
     <style>
+        /* https://piccalil.li/blog/a-more-modern-css-reset/ */
+        /* Box sizing rules */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        /* Prevent font size inflation */
+        html {
+            -moz-text-size-adjust: none;
+            -webkit-text-size-adjust: none;
+            text-size-adjust: none;
+        }
+
+        /* Remove default margin in favour of better control in authored CSS */
+        body,
+        h1,
+        h2,
+        h3,
+        h4,
+        p,
+        figure,
+        blockquote,
+        dl,
+        dd {
+            margin-block-end: 0;
+        }
+
+        /* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+        ul[role='list'],
+        ol[role='list'] {
+            list-style: none;
+        }
+
+        /* Set core body defaults */
+        body {
+            min-height: 100vh;
+            line-height: 1.5;
+        }
+
+        /* Set shorter line heights on headings and interactive elements */
+        h1,
+        h2,
+        h3,
+        h4,
+        button,
+        input,
+        label {
+            line-height: 1.1;
+        }
+
+        /* Balance text wrapping on headings */
+        h1,
+        h2,
+        h3,
+        h4 {
+            text-wrap: balance;
+        }
+
+        /* A elements that don't have a class get default styles */
+        a:not([class]) {
+            text-decoration-skip-ink: auto;
+            color: currentColor;
+        }
+
+        /* Make images easier to work with */
+        img,
+        picture {
+            max-width: 100%;
+            display: block;
+        }
+
+        /* Inherit fonts for inputs and buttons */
+        input,
+        button,
+        textarea,
+        select {
+            font-family: inherit;
+            font-size: inherit;
+        }
+
+        /* Make sure textareas without a rows attribute are not tiny */
+        textarea:not([rows]) {
+            min-height: 10em;
+        }
+
+        /* Anything that has been anchored to should have extra scroll margin */
+        :target {
+            scroll-margin-block: 5ex;
+        }
+
+        /* https://www.nieknijland.nl/blog/make-a-responsive-carousel-with-just-css */
+
         .list {
             display: flex;
             gap: 8px;
             padding: 16px;
+
+            height: 40vh;
 
             list-style: none;
             overflow-x: scroll;
@@ -27,11 +123,10 @@
 
         .item {
             flex-shrink: 0;
-            width: 80%;
-            height: 90vh;
+            width: 100vh;
+            height: 100vh;
 
-            background-color: #FFF;
-
+            background-color: #eee;
             scroll-snap-align: center;
         }
 
@@ -42,8 +137,7 @@
             height: 100%;
 
             font-family: sans-serif;
-            font-size: 64px;
-            font-weight: bold;
+            /* font-size: 64px; */
         }
 
         .list-wrapper {
@@ -103,19 +197,85 @@
     <div class="list-wrapper">
         <ul class="list">
             <li class="item">
-                <div class="content">Item 1</div>
+                <div class="content">
+                    <blockquote>
+                        &ldquo;The entertaining stories captured our imaginations and kept us on the edge of our seats.
+                        Our kids enjoyed
+                        the audience participation aspects of each story and seemed to hang on every word.&rdquo;
+
+                        <br>
+                        <br>
+                        <div style="text-align: right"> &mdash;
+                            Jeff Wylie, WES Interim Principal
+                        </div>
+                    </blockquote>
+                </div>
             </li>
             <li class="item">
-                <div class="content">Item 2</div>
+                <div class="content">
+                    <blockquote>
+                        &ldquo;I was so excited to have Mrs. Phillips come to my classroom and tell my students her
+                        stories. Her amazing
+                        storytelling ability encouraged many of my students to grow their love for reading and creating
+                        their own
+                        stories. I could see this in their writing when they referenced something in one of her stories
+                        and also in
+                        their growing imaginations. All of my students truly loved when she would come and share her
+                        stories, as it
+                        would brighten up their day and give them something extra special to look forward to.&rdquo;
+                        <br>
+                        <br>
+                        <div style="text-align: right"> &mdash;
+                            Connie Hendrix, 1st grade teacher, PES
+                        </div>
+                    </blockquote>
+                </div>
             </li>
             <li class="item">
-                <div class="content">Item 3</div>
+                <div class="content">
+                    <blockquote>
+                        &ldquo;Storytime with Ms. Cindy was a positive experience in our 3-and 4-year-old PreK rooms. We
+                        have students
+                        who have a hard time sitting and listening for more than a couple of minutes. The stories had
+                        each student
+                        captivated, waiting for what would come next.&rdquo;
+
+                        <br>
+                        <br>
+                        <div style="text-align: right"> &mdash;
+                            Paula Lane, PreK Director, MES
+                        </div>
+                    </blockquote>
+                </div>
             </li>
             <li class="item">
-                <div class="content">Item 4</div>
-            </li>
-            <li class="item">
-                <div class="content">Item 5</div>
+                <div class="content">
+                    <blockquote>
+                        &ldquo;We had a very special guest this week&mdash;Storyteller Cindy Phillips brought her
+                        incredible talent to
+                        our library and captivated our Kindergarten, 1st, and 2nd grade students with her unforgettable
+                        tales!
+                        The room was filled with wide eyes, giggles, and gasps as Cindy worked her storytelling magic.
+                        Just listen to
+                        what the kids had to say:
+                        <ul>
+                            <li>A 2nd grader exclaimed, &ldquo;She tells better stories than anyone!&rdquo;</li>
+                            <li>A curious 1st grader asked, &ldquo;How did you get so good at telling stories?&rdquo;
+                            </li>
+                            <li>And a kindergartner (with total seriousness) declared, &ldquo;This was the best story of
+                                my life!&rdquo;
+                            </li>
+                        </ul>
+                        We&apos;re pretty sure Cindy Phillips has officially earned &ldquo;Storytime Legend&rdquo;
+                        status around
+                        here.&rdquo;
+                        <br>
+                        <br>
+                        <div style="text-align: right"> &mdash;
+                            Shannon Owen, Librarian at HGES
+                        </div>
+                    </blockquote>
+                </div>
             </li>
         </ul>
         <!-- We're calling `handleClick` with a direction argument when the buttons are clicked -->
@@ -141,61 +301,9 @@
     </script>
 
 
-    <blockquote>
-        &ldquo;We had a very special guest this week&mdash;Storyteller Cindy Phillips brought her incredible talent to
-        our library and captivated our Kindergarten, 1st, and 2nd grade students with her unforgettable tales!
-        The room was filled with wide eyes, giggles, and gasps as Cindy worked her storytelling magic. Just listen to
-        what the kids had to say:
-        <ul>
-            <li>A 2nd grader exclaimed, &ldquo;She tells better stories than anyone!&rdquo;</li>
-            <li>A curious 1st grader asked, &ldquo;How did you get so good at telling stories?&rdquo;</li>
-            <li>And a kindergartner (with total seriousness) declared, &ldquo;This was the best story of my life!&rdquo;
-            </li>
-        </ul>
-        We&apos;re pretty sure Cindy Phillips has officially earned &ldquo;Storytime Legend&rdquo; status around
-        here.&rdquo;
-        <br>
-        <br>
-        <div style="text-align: right"> &mdash;
-            Shannon Owen, Librarian at HGES
-        </div>
-    </blockquote>
 
-    <blockquote>
-        &ldquo;The entertaining stories captured our imaginations and kept us on the edge of our seats. Our kids enjoyed
-        the audience participation aspects of each story and seemed to hang on every word.&rdquo;
 
-        <br>
-        <br>
-        <div style="text-align: right"> &mdash;
-            Jeff Wylie, WES Interim Principal
-        </div>
-    </blockquote>
 
-    <blockquote>
-        &ldquo;I was so excited to have Mrs. Phillips come to my classroom and tell my students her stories. Her amazing
-        storytelling ability encouraged many of my students to grow their love for reading and creating their own
-        stories. I could see this in their writing when they referenced something in one of her stories and also in
-        their growing imaginations. All of my students truly loved when she would come and share her stories, as it
-        would brighten up their day and give them something extra special to look forward to.&rdquo;
-        <br>
-        <br>
-        <div style="text-align: right"> &mdash;
-            Connie Hendrix, 1st grade teacher, PES
-        </div>
-    </blockquote>
-
-    <blockquote>
-        &ldquo;Storytime with Ms. Cindy was a positive experience in our 3-and 4-year-old PreK rooms. We have students
-        who have a hard time sitting and listening for more than a couple of minutes. The stories had each student
-        captivated, waiting for what would come next.&rdquo;
-
-        <br>
-        <br>
-        <div style="text-align: right"> &mdash;
-            Paula Lane, PreK Director, MES
-        </div>
-    </blockquote>
 
     <p>
         Cindy&apos;s growing repertoire of over 50 stories includes folktales and fairy tales from all over the world,
